@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>9ta3daba</title>
+
+<!-- PWA -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#080808">
+
+<!-- iPhone / iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="9ta3daba">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#080808;
+  color:white;
+  min-height:100vh;
+  padding-bottom:90px;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.hidden{
+  display:none !important;
+}
+
+/* HEADER */
+
+.header{
+  padding:22px 20px 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  opacity:.45;
+}
+
+.header-badge{
+  background:#1b1b1b;
+  border:1px solid #303030;
+  padding:7px 11px;
+  border-radius:20px;
+  font-size:11px;
+  color:#aaa;
+}
+
+/* CONTAINER */
+
+.container{
+  padding:15px;
+  max-width:600px;
+  margin:auto;
+}
+
+/* CARDS */
+
+.card{
+  background:#151515;
+  border:1px solid #262626;
+  border-radius:24px;
+  padding:20px;
+  margin-bottom:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.card-title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.card-subtitle{
+  color:#888;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* SETUP */
+
+.setup{
+  min-height:calc(100vh - 30px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.setup-card{
+  width:100%;
+  max-width:500px;
+  background:#151515;
+  border:1px solid #292929;
+  border-radius:30px;
+  padding:28px 22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.setup-logo{
+  font-size:36px;
+  font-weight:900;
+  letter-spacing:-2px;
+  margin-bottom:10px;
+}
+
+.setup-logo span{
+  color:#777;
+}
+
+.setup-title{
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.setup-description{
+  color:#888;
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+/* FORM */
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-label{
+  display:block;
+  color:#aaa;
+  font-size:12px;
+  margin-bottom:7px;
+}
+
+.input{
+  width:100%;
+  background:#0e0e0e;
+  color:white;
+  border:1px solid #303030;
+  border-radius:15px;
+  padding:14px;
+  outline:none;
+}
+
+.input:focus{
+  border-color:#777;
+}
+
+.primary-btn{
+  width:100%;
+  background:white;
+  color:#080808;
+  padding:15px;
+  border-radius:16px;
+  font-weight:800;
+  margin-top:8px;
+}
+
+.secondary-btn{
+  width:100%;
+  background:#222;
+  color:white;
+  padding:14px;
+  border-radius:15px;
+  font-weight:700;
+  margin-top:10px;
+}
+
+/* HOME */
+
+.hero{
+  text-align:center;
+  padding:15px 0 20px;
+}
+
+.hero-label{
+  color:#777;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.hero-title{
+  font-size:28px;
+  font-weight:850;
+  margin-top:5px;
+}
+
+/* PROGRESS */
+
+.progress-wrapper{
+  display:flex;
+  justify-content:center;
+  margin:15px 0 25px;
+}
+
+.progress-circle{
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:conic-gradient(
+    white 0deg,
+    white 0deg,
+    #292929 0deg,
+    #292929 360deg
+  );
+  position:relative;
+}
+
+.progress-circle::before{
+  content:"";
+  position:absolute;
+  width:202px;
+  height:202px;
+  background:#151515;
+  border-radius:50%;
+}
+
+.progress-content{
+  position:relative;
+  text-align:center;
+  z-index:2;
+}
+
+.days-number{
+  font-size:48px;
+  font-weight:900;
+  letter-spacing:-2px;
+}
+
+.days-label{
+  color:#888;
+  font-size:13px;
+}
+
+.live-counter{
+  margin-top:8px;
+  font-size:12px;
+  color:#aaa;
+}
+
+/* STATS */
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.stat{
+  background:#151515;
+  border:1px solid #262626;
+  border-radius:20px;
+  padding:18px;
+}
+
+.stat-value{
+  font-size:24px;
+  font-weight:850;
+}
+
+.stat-label{
+  color:#777;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* HEALTH */
+
+.health-item{
+  padding:14px 0;
+  border-bottom:1px solid #262626;
+}
+
+.health-item:last-child{
+  border-bottom:0;
+}
+
+.health-time{
+  font-size:12px;
+  color:#aaa;
+  margin-bottom:4px;
+}
+
+.health-title{
+  font-size:14px;
+  font-weight:650;
+}
+
+.health-locked{
+  opacity:.35;
+}
+
+/* ACHIEVEMENTS */
+
+.achievement{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  background:#101010;
+  border:1px solid #252525;
+  border-radius:17px;
+  margin-bottom:10px;
+}
+
+.achievement-icon{
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  background:#222;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+}
+
+.achievement-info{
+  flex:1;
+}
+
+.achievement-title{
+  font-size:14px;
+  font-weight:700;
+}
+
+.achievement-desc{
+  color:#777;
+  font-size:11px;
+  margin-top:3px;
+}
+
+.achievement.locked{
+  opacity:.35;
+}
+
+/* CHART */
+
+.chart-box{
+  height:190px;
+  margin-top:15px;
+}
+
+canvas{
+  width:100%;
+  height:100%;
+}
+
+/* SETTINGS */
+
+.setting-row{
+  padding:15px 0;
+  border-bottom:1px solid #292929;
+}
+
+.setting-row:last-child{
+  border-bottom:0;
+}
+
+.setting-label{
+  font-size:14px;
+  font-weight:650;
+}
+
+.setting-description{
+  color:#777;
+  font-size:11px;
+  margin-top:4px;
+}
+
+/* MESSAGE */
+
+.message{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:white;
+  color:#080808;
+  padding:12px 18px;
+  border-radius:14px;
+  font-size:13px;
+  font-weight:700;
+  z-index:1000;
+  display:none;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  bottom:12px;
+  left:12px;
+  right:12px;
+  max-width:600px;
+  margin:auto;
+  background:rgba(20,20,20,.95);
+  border:1px solid #303030;
+  border-radius:24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:8px;
+  z-index:100;
+  backdrop-filter:blur(20px);
+}
+
+.nav-btn{
+  background:transparent;
+  color:#777;
+  padding:10px 4px;
+  border-radius:17px;
+  font-size:10px;
+}
+
+.nav-btn.active{
+  background:#292929;
+  color:white;
+}
+
+.nav-icon{
+  display:block;
+  font-size:18px;
+  margin-bottom:3px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:360px){
+  .progress-circle{
+    width:205px;
+    height:205px;
+  }
+
+  .progress-circle::before{
+    width:179px;
+    height:179px;
+  }
+
+  .days-number{
+    font-size:42px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="message" class="message"></div>
+
+<!-- ================= SETUP ================= -->
+
+<section id="setup" class="setup hidden">
+
+  <div class="setup-card">
+
+    <div class="setup-logo">
+      9ta3<span>daba</span>
+    </div>
+
+    <div class="setup-title">
+      Start your smoke-free journey
+    </div>
+
+    <div class="setup-description">
+      Enter your smoking information and start tracking
+      your smoke-free time, cigarettes avoided and money saved.
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Cigarettes per day</label>
+      <input
+        id="cigarettesPerDay"
+        class="input"
+        type="number"
+        min="1"
+        placeholder="20"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Pack price (MAD)</label>
+      <input
+        id="packPrice"
+        class="input"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="40"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Cigarettes per pack</label>
+      <input
+        id="cigarettesPerPack"
+        class="input"
+        type="number"
+        min="1"
+        placeholder="20"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Quit date</label>
+      <input
+        id="quitDate"
+        class="input"
+        type="date"
+      >
+    </div>
+
+    <button class="primary-btn" onclick="startJourney()">
+      Start Journey
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= APP ================= -->
+
+<section id="app" class="hidden">
+
+  <header class="header">
+
+    <div class="logo">
+      9ta3daba
+    </div>
+
+    <div class="header-badge">
+      SMOKE FREE
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+    <!-- HOME -->
+
+    <section id="home">
+
+      <div class="hero">
+
+        <div class="hero-label">
+          Your journey
+        </div>
+
+        <div class="hero-title">
+          Keep going.
+        </div>
+
+      </div>
+
+
+      <div class="progress-wrapper">
+
+        <div id="progressCircle" class="progress-circle">
+
+          <div class="progress-content">
+
+            <div id="daysNumber" class="days-number">
+              0
+            </div>
+
+            <div class="days-label">
+              smoke-free days
+            </div>
+
+            <div id="liveCounter" class="live-counter">
+              0 days 00h 00m
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat">
+
+          <div id="cigarettesAvoided" class="stat-value">
+            0
+          </div>
+
+          <div class="stat-label">
+            Cigarettes avoided
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div id="moneySaved" class="stat-value">
+            0 MAD
+          </div>
+
+          <div class="stat-label">
+            Money saved
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-title">
+          Health timeline
+        </div>
+
+        <div class="card-subtitle">
+          Milestones during your smoke-free journey.
+        </div>
+
+        <div id="healthList"></div>
+
+        <button
+          id="healthButton"
+          class="secondary-btn"
+          onclick="showAllHealth(this)"
+        >
+          Show all milestones
+        </button>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-title">
+          Achievements
+        </div>
+
+        <div class="card-subtitle">
+          Small milestones. Big progress.
+        </div>
+
+        <div id="homeAchievements"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section id="statistics" class="hidden">
+
+      <div class="hero">
+
+        <div class="hero-label">
+          Statistics
+        </div>
+
+        <div class="hero-title">
+          Your progress
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat">
+          <div id="statDays" class="stat-value">0</div>
+          <div class="stat-label">Days smoke-free</div>
+        </div>
+
+        <div class="stat">
+          <div id="statHours" class="stat-value">0</div>
+          <div class="stat-label">Hours</div>
+        </div>
+
+        <div class="stat">
+          <div id="statCigarettes" class="stat-value">0</div>
+          <div class="stat-label">Cigarettes avoided</div>
+        </div>
+
+        <div class="stat">
+          <div id="statMoney" class="stat-value">0 MAD</div>
+          <div class="stat-label">Money saved</div>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-title">
+          Progress
+        </div>
+
+        <div class="card-subtitle">
+          Smoke-free days over your journey.
+        </div>
+
+        <div class="chart-box">
+          <canvas id="progressChart"></canvas>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+
+    <section id="achievementsPage" class="hidden">
+
+      <div class="hero">
+
+        <div class="hero-label">
+          Achievements
+        </div>
+
+        <div class="hero-title">
+          Keep going
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div id="allAchievements"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+
+    <section id="settings" class="hidden">
+
+      <div class="hero">
+
+        <div class="hero-label">
+          Settings
+        </div>
+
+        <div class="hero-title">
+          Your journey
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="setting-row">
+
+          <div class="setting-label">
+            Cigarettes per day
+          </div>
+
+          <div class="setting-description">
+            Number of cigarettes you used to smoke daily.
+          </div>
+
+          <input
+            id="settingsCigarettes"
+            class="input"
+            type="number"
+            min="1"
+            style="margin-top:10px"
+          >
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div class="setting-label">
+            Pack price
+          </div>
+
+          <div class="setting-description">
+            Price of one cigarette pack.
+          </div>
+
+          <input
+            id="settingsPackPrice"
+            class="input"
+            type="number"
+            min="0"
+            step="0.01"
+            style="margin-top:10px"
+          >
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div class="setting-label">
+            Cigarettes per pack
+          </div>
+
+          <input
+            id="settingsPackSize"
+            class="input"
+            type="number"
+            min="1"
+            style="margin-top:10px"
+          >
+
+        </div>
+
+
+        <button
+          class="primary-btn"
+          onclick="saveSettings()"
+        >
+          Save changes
+        </button>
+
+
+        <button
+          class="secondary-btn"
+          onclick="resetJourney()"
+        >
+          Reset journey
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAV -->
+
+  <nav id="bottomNav" class="bottom-nav">
+
+    <button
+      id="navHome"
+      class="nav-btn active"
+      onclick="navigate('home')"
+    >
+      <span class="nav-icon">⌂</span>
+      Home
+    </button>
+
+    <button
+      id="navStats"
+      class="nav-btn"
+      onclick="navigate('statistics')"
+    >
+      <span class="nav-icon">◔</span>
+      Stats
+    </button>
+
+    <button
+      id="navAchievements"
+      class="nav-btn"
+      onclick="navigate('achievementsPage')"
+    >
+      <span class="nav-icon">★</span>
+      Goals
+    </button>
+
+    <button
+      id="navSettings"
+      class="nav-btn"
+      onclick="navigate('settings')"
+    >
+      <span class="nav-icon">⚙</span>
+      Settings
+    </button>
+
+  </nav>
+
+</section>
+
+
+<script>
+
+/* ================= STORAGE ================= */
+
+const STORAGE_KEY = "kodoQuitData";
+
+
+/* ================= DATA ================= */
+
+const healthMilestones = [
+
+  {
+    minutes:20,
+    time:"20 min",
+    title:"Heart rate starts to drop"
+  },
+
+  {
+    minutes:1440,
+    time:"24 hours",
+    title:"Nicotine level reaches zero"
+  },
+
+  {
+    minutes:2880,
+    time:"48 hours",
+    title:"Taste and smell can improve"
+  },
+
+  {
+    minutes:4320,
+    time:"72 hours",
+    title:"Breathing may feel easier"
+  },
+
+  {
+    minutes:20160,
+    time:"2–12 weeks",
+    title:"Circulation improves"
+  },
+
+  {
+    minutes:129600,
+    time:"3–9 months",
+    title:"Breathing symptoms can improve"
+  },
+
+  {
+    minutes:525600,
+    time:"1 year",
+    title:"Heart disease risk decreases"
+  },
+
+  {
+    minutes:2628000,
+    time:"5–10 years",
+    title:"Several health risks decrease"
+  },
+
+  {
+    minutes:5256000,
+    time:"10 years",
+    title:"Lung cancer risk decreases"
+  },
+
+  {
+    minutes:7884000,
+    time:"15 years",
+    title:"Heart disease risk approaches that of a nonsmoker"
+  }
+
+];
+
+
+const achievements = [
+
+  {
+    days:1,
+    icon:"🌱",
+    title:"First Day",
+    desc:"You completed your first smoke-free day."
+  },
+
+  {
+    days:3,
+    icon:"🔥",
+    title:"Three Days",
+    desc:"You reached three smoke-free days."
+  },
+
+  {
+    days:7,
+    icon:"⭐",
+    title:"One Week",
+    desc:"You completed your first week."
+  },
+
+  {
+    days:14,
+    icon:"🏆",
+    title:"Two Weeks",
+    desc:"Fourteen days smoke-free."
+  },
+
+  {
+    days:30,
+    icon:"👑",
+    title:"30 Days",
+    desc:"One full month smoke-free."
+  },
+
+  {
+    days:90,
+    icon:"💎",
+    title:"90 Days",
+    desc:"Three months of progress."
+  },
+
+  {
+    days:180,
+    icon:"🚀",
+    title:"180 Days",
+    desc:"Half a year smoke-free."
+  },
+
+  {
+    days:365,
+    icon:"🏅",
+    title:"One Year",
+    desc:"A full year smoke-free."
+  }
+
+];
+
+
+/* ================= GET DATA ================= */
+
+function getJourneyData(){
+
+  const raw = localStorage.getItem(STORAGE_KEY);
+
+  if(!raw){
+    return null;
+  }
+
+  try{
+    return JSON.parse(raw);
+  }catch(error){
+    return null;
+  }
+
+}
+
+
+/* ================= START ================= */
+
+function startJourney(){
+
+  const cigarettesPerDay =
+    Number(document.getElementById("cigarettesPerDay").value);
+
+  const packPrice =
+    Number(document.getElementById("packPrice").value);
+
+  const cigarettesPerPack =
+    Number(document.getElementById("cigarettesPerPack").value);
+
+  const quitDate =
+    document.getElementById("quitDate").value;
+
+
+  if(
+    !cigarettesPerDay ||
+    !packPrice ||
+    !cigarettesPerPack ||
+    !quitDate
+  ){
+
+    showMessage(
+      "Please complete all fields."
+    );
+
+    return;
+  }
+
+
+  const data = {
+
+    cigarettesPerDay,
+    packPrice,
+    cigarettesPerPack,
+    quitDate
+
+  };
+
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
+  );
+
+
+  showApp();
+
+}
+
+
+/* ================= DATE ================= */
+
+function getQuitDateTime(data){
+
+  const date = new Date(
+    data.quitDate + "T00:00:00"
+  );
+
+  return date;
+
+}
+
+
+/* ================= CALCULATIONS ================= */
+
+function calculateJourney(data){
+
+  const start = getQuitDateTime(data);
+
+  const now = new Date();
+
+  let elapsed = now - start;
+
+  if(elapsed < 0){
+    elapsed = 0;
+  }
+
+
+  const totalMinutes =
+    Math.floor(elapsed / 60000);
+
+  const totalHours =
+    Math.floor(totalMinutes / 60);
+
+  const days =
+    Math.floor(totalHours / 24);
+
+  const hours =
+    totalHours % 24;
+
+  const minutes =
+    totalMinutes % 60;
+
+
+  const exactDays =
+    elapsed / (1000 * 60 * 60 * 24);
+
+
+  const cigarettesAvoided =
+    Math.floor(
+      exactDays * data.cigarettesPerDay
+    );
+
+
+  const pricePerCigarette =
+    data.packPrice /
+    data.cigarettesPerPack;
+
+
+  const moneySaved =
+    cigarettesAvoided *
+    pricePerCigarette;
+
+
+  return {
+
+    days,
+    hours,
+    minutes,
+    exactDays,
+    cigarettesAvoided,
+    moneySaved
+
+  };
+
+}
+
+
+/* ================= DASHBOARD ================= */
+
+function updateDashboard(){
+
+  const data = getJourneyData();
+
+  if(!data){
+    return;
+  }
+
+
+  const journey =
+    calculateJourney(data);
+
+
+  document.getElementById(
+    "daysNumber"
+  ).textContent =
+    journey.days;
+
+
+  document.getElementById(
+    "liveCounter"
+  ).textContent =
+    journey.days +
+    " days " +
+    String(journey.hours).padStart(2,"0") +
+    "h " +
+    String(journey.minutes).padStart(2,"0") +
+    "m";
+
+
+  document.getElementById(
+    "cigarettesAvoided"
+  ).textContent =
+    journey.cigarettesAvoided;
+
+
+  document.getElementById(
+    "moneySaved"
+  ).textContent =
+    journey.moneySaved.toFixed(2) +
+    " MAD";
+
+
+  updateProgressCircle(
+    journey.days
+  );
+
+
+  updateHealth(
+    journey.exactDays * 24 * 60
+  );
+
+
+  updateAchievements(
+    journey.days
+  );
+
+
+  updateStatistics();
+
+}
+
+
+/* ================= PROGRESS CIRCLE ================= */
+
+function updateProgressCircle(days){
+
+  const circle =
+    document.getElementById(
+      "progressCircle"
+    );
+
+
+  const percent =
+    Math.min(days / 30, 1);
+
+
+  const degree =
+    percent * 360;
+
+
+  circle.style.background =
+    `conic-gradient(
+      white 0deg ${degree}deg,
+      #292929 ${degree}deg 360deg
+    )`;
+
+}
+
+
+/* ================= HEALTH ================= */
+
+function updateHealth(totalMinutes){
+
+  const container =
+    document.getElementById(
+      "healthList"
+    );
+
+
+  container.innerHTML = "";
+
+
+  const visible =
+    healthMilestones.slice(0,5);
+
+
+  visible.forEach(item => {
+
+    const unlocked =
+      totalMinutes >= item.minutes;
+
+
+    const div =
+      document.createElement("div");
+
+
+    div.className =
+      "health-item" +
+      (unlocked ? "" : " health-locked");
+
+
+    div.innerHTML = `
+
+      <div class="health-time">
+        ${item.time}
+      </div>
+
+      <div class="health-title">
+        ${item.title}
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+function showAllHealth(button){
+
+  const container =
+    document.getElementById(
+      "healthList"
+    );
+
+
+  const data =
+    getJourneyData();
+
+
+  const journey =
+    calculateJourney(data);
+
+
+  const totalMinutes =
+    journey.exactDays * 24 * 60;
+
+
+  container.innerHTML = "";
+
+
+  healthMilestones.forEach(item => {
+
+    const unlocked =
+      totalMinutes >= item.minutes;
+
+
+    const div =
+      document.createElement("div");
+
+
+    div.className =
+      "health-item" +
+      (unlocked ? "" : " health-locked");
+
+
+    div.innerHTML = `
+
+      <div class="health-time">
+        ${item.time}
+      </div>
+
+      <div class="health-title">
+        ${item.title}
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+
+  button.style.display =
+    "none";
+
+}
+
+
+/* ================= ACHIEVEMENTS ================= */
+
+function updateAchievements(days){
+
+  renderAchievements(
+    "homeAchievements",
+    days
+  );
+
+  renderAchievements(
+    "allAchievements",
+    days
+  );
+
+}
+
+
+function renderAchievements(
+  containerId,
+  days
+){
+
+  const container =
+    document.getElementById(
+      containerId
+    );
+
+
+  if(!container){
+    return;
+  }
+
+
+  container.innerHTML = "";
+
+
+  achievements.forEach(item => {
+
+    const unlocked =
+      days >= item.days;
+
+
+    const div =
+      document.createElement("div");
+
+
+    div.className =
+      "achievement" +
+      (unlocked ? "" : " locked");
+
+
+    div.innerHTML = `
+
+      <div class="achievement-icon">
+        ${item.icon}
+      </div>
+
+      <div class="achievement-info">
+
+        <div class="achievement-title">
+          ${item.title}
+        </div>
+
+        <div class="achievement-desc">
+          ${item.desc}
+        </div>
+
+      </div>
+
+    `;
+
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* ================= STATISTICS ================= */
+
+function updateStatistics(){
+
+  const data =
+    getJourneyData();
+
+
+  if(!data){
+    return;
+  }
+
+
+  const journey =
+    calculateJourney(data);
+
+
+  document.getElementById(
+    "statDays"
+  ).textContent =
+    journey.days;
+
+
+  document.getElementById(
+    "statHours"
+  ).textContent =
+    Math.floor(
+      journey.exactDays * 24
+    );
+
+
+  document.getElementById(
+    "statCigarettes"
+  ).textContent =
+    journey.cigarettesAvoided;
+
+
+  document.getElementById(
+    "statMoney"
+  ).textContent =
+    journey.moneySaved.toFixed(2) +
+    " MAD";
+
+
+  drawProgressChart(
+    journey.days
+  );
+
+}
+
+
+/* ================= CHART ================= */
+
+function drawProgressChart(days){
+
+  const canvas =
+    document.getElementById(
+      "progressChart"
+    );
+
+
+  if(!canvas){
+    return;
+  }
+
+
+  const ctx =
+    canvas.getContext("2d");
+
+
+  const rect =
+    canvas.getBoundingClientRect();
+
+
+  const dpr =
+    window.devicePixelRatio || 1;
+
+
+  canvas.width =
+    rect.width * dpr;
+
+
+  canvas.height =
+    rect.height * dpr;
+
+
+  ctx.scale(dpr,dpr);
+
+
+  const width =
+    rect.width;
+
+
+  const height =
+    rect.height;
+
+
+  ctx.clearRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+
+  ctx.strokeStyle =
+    "#292929";
+
+  ctx.lineWidth = 1;
+
+
+  for(let i=1;i<4;i++){
+
+    const y =
+      (height / 4) * i;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(0,y);
+
+    ctx.lineTo(width,y);
+
+    ctx.stroke();
+
+  }
+
+
+  const maxDays =
+    Math.max(days,30);
+
+
+  const points = 30;
+
+
+  ctx.strokeStyle =
+    "#ffffff";
+
+  ctx.lineWidth = 3;
+
+  ctx.beginPath();
+
+
+  for(let i=0;i<points;i++){
+
+    const x =
+      (i/(points-1)) * width;
+
+
+    const value =
+      Math.min(
+        days,
+        (days / (points-1)) * i
+      );
+
+
+    const y =
+      height -
+      (value/maxDays) * height;
+
+
+    if(i === 0){
+      ctx.moveTo(x,y);
+    }else{
+      ctx.lineTo(x,y);
+    }
+
+  }
+
+
+  ctx.stroke();
+
+}
+
+
+/* ================= NAVIGATION ================= */
+
+function navigate(page){
+
+  const pages = [
+
+    "home",
+    "statistics",
+    "achievementsPage",
+    "settings"
+
+  ];
+
+
+  pages.forEach(id => {
+
+    const section =
+      document.getElementById(id);
+
+
+    if(section){
+      section.classList.add(
+        "hidden"
+      );
+    }
+
+  });
+
+
+  const selected =
+    document.getElementById(page);
+
+
+  if(selected){
+    selected.classList.remove(
+      "hidden"
+    );
+  }
+
+
+  const navs = [
+
+    "navHome",
+    "navStats",
+    "navAchievements",
+    "navSettings"
+
+  ];
+
+
+  navs.forEach(id => {
+
+    document.getElementById(id)
+      .classList.remove("active");
+
+  });
+
+
+  const map = {
+
+    home:"navHome",
+
+    statistics:"navStats",
+
+    achievementsPage:
+      "navAchievements",
+
+    settings:"navSettings"
+
+  };
+
+
+  if(map[page]){
+
+    document.getElementById(
+      map[page]
+    ).classList.add("active");
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================= SHOW APP ================= */
+
+function showApp(){
+
+  document.getElementById(
+    "setup"
+  ).classList.add("hidden");
+
+
+  document.getElementById(
+    "app"
+  ).classList.remove("hidden");
+
+
+  updateDashboard();
+
+  loadSettings();
+
+}
+
+
+/* ================= SETTINGS ================= */
+
+function loadSettings(){
+
+  const data =
+    getJourneyData();
+
+
+  if(!data){
+    return;
+  }
+
+
+  document.getElementById(
+    "settingsCigarettes"
+  ).value =
+    data.cigarettesPerDay;
+
+
+  document.getElementById(
+    "settingsPackPrice"
+  ).value =
+    data.packPrice;
+
+
+  document.getElementById(
+    "settingsPackSize"
+  ).value =
+    data.cigarettesPerPack;
+
+}
+
+
+function saveSettings(){
+
+  const data =
+    getJourneyData();
+
+
+  if(!data){
+    return;
+  }
+
+
+  data.cigarettesPerDay =
+    Number(
+      document.getElementById(
+        "settingsCigarettes"
+      ).value
+    );
+
+
+  data.packPrice =
+    Number(
+      document.getElementById(
+        "settingsPackPrice"
+      ).value
+    );
+
+
+  data.cigarettesPerPack =
+    Number(
+      document.getElementById(
+        "settingsPackSize"
+      ).value
+    );
+
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
+  );
+
+
+  showMessage(
+    "Settings saved"
+  );
+
+
+  updateDashboard();
+
+}
+
+
+/* ================= RESET ================= */
+
+function resetJourney(){
+
+  const confirmed =
+    confirm(
+      "Reset your 9ta3daba journey?"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
+
+
+  location.reload();
+
+}
+
+
+/* ================= MESSAGE ================= */
+
+function showMessage(text){
+
+  const message =
+    document.getElementById(
+      "message"
+    );
+
+
+  message.textContent =
+    text;
+
+
+  message.style.display =
+    "block";
+
+
+  setTimeout(() => {
+
+    message.style.display =
+      "none";
+
+  },2500);
+
+}
+
+
+/* ================= LIVE UPDATE ================= */
+
+function liveUpdate(){
+
+  const data =
+    getJourneyData();
+
+
+  if(!data){
+    return;
+  }
+
+
+  const journey =
+    calculateJourney(data);
+
+
+  document.getElementById(
+    "liveCounter"
+  ).textContent =
+    journey.days +
+    " days " +
+    String(journey.hours).padStart(2,"0") +
+    "h " +
+    String(journey.minutes).padStart(2,"0") +
+    "m";
+
+
+  updateDashboard();
+
+}
+
+
+/* ================= PWA ================= */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator.serviceWorker
+        .register(
+          "./service-worker.js"
+        )
+        .then(() => {
+
+          console.log(
+            "9ta3daba Service Worker registered"
+          );
+
+        })
+        .catch(error => {
+
+          console.log(
+            "Service Worker error:",
+            error
+          );
+
+        });
+
+    }
+  );
+
+}
+
+
+/* ================= STARTUP ================= */
+
+window.onload = function(){
+
+  const data =
+    getJourneyData();
+
+
+  if(data){
+
+    showApp();
+
+  }else{
+
+    document.getElementById(
+      "setup"
+    ).classList.remove("hidden");
+
+    document.getElementById(
+      "app"
+    ).classList.add("hidden");
+
+  }
+
+
+  setInterval(
+    liveUpdate,
+    30000
+  );
+
+};
+
+
+</script>
+
+</body>
+</html>
