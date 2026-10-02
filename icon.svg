@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512">
+
+  <rect
+    width="512"
+    height="512"
+    rx="115"
+    fill="#080808"/>
+
+  <!-- Cigarette -->
+  <rect
+    x="170"
+    y="235"
+    width="190"
+    height="42"
+    rx="21"
+    fill="#ffffff"/>
+
+  <!-- Filter -->
+  <rect
+    x="315"
+    y="235"
+    width="45"
+    height="42"
+    rx="12"
+    fill="#999999"/>
+
+  <!-- Smoke -->
+  <path
+    d="M205 210
+       C185 185 225 165 205 140
+       C185 115 225 95 205 70"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="12"
+    stroke-linecap="round"/>
+
+  <!-- No smoking circle -->
+  <circle
+    cx="256"
+    cy="256"
+    r="175"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="18"/>
+
+  <!-- Slash -->
+  <line
+    x1="135"
+    y1="135"
+    x2="377"
+    y2="377"
+    stroke="#ffffff"
+    stroke-width="24"
+    stroke-linecap="round"/>
+
+</svg>
